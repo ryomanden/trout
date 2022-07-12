@@ -9,14 +9,14 @@
 情報数学で作ったプログラムを、学習目的でライブラリ化しました。
 
 ## インストール
-```python
+```shell
 pip install git+https://github.com/ryomanden/trout
 ```
 
 ## 使い方
 ### インポート
 ```python
-impot trout as tr
+import trout as tr
 ```
 ### 逆行列
 2*2の配列で指定してください
