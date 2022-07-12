@@ -1,12 +1,13 @@
 import numpy as np
+import sympy as sp
 
 def inverse(data,mod):
     data = np.array(data, dtype=int)
 
     #--- 行列式計算 ---#
     det = np.linalg.det(data)
-    det_inv = int(det % mod) #modかける
-
+    det = int(det % mod) #modかける
+    det_inv = sp.gcdex(det,mod)[1]
     #--- ひっくり返す(いい感じじゃない) ---#
     tmp = data[0][0]
     data[0][0] = data[1][1]
@@ -16,10 +17,12 @@ def inverse(data,mod):
     data[0][1] = data[1][0]*(-1)
     data[1][0] = tmp*(-1)
 
-    data_inv = np.dot(data, det_inv) % mod
+    data_inv = np.dot(data, det) % mod
 
     return data_inv
 
+
+#関数化うまくいってない#
 def euclid(a,b):
     a: int = []
     b: int = []
