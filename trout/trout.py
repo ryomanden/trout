@@ -21,24 +21,31 @@ def inverse(data,mod):
     return data_inv
 
 def euclid(a,b):
-    data = [list(range(4))]
-    data.insert(0, a)
-    data.insert(1, b)
+    a: int = []
+    b: int = []
+    r: int = []
+    q: int = []
 
-    if 0 == data[0] or 0 == data[1]: #Check suitability
-        raise Exception('ERROR:Do not assign 0 to the 1st and 2nd argument.')
-    
+    #input
+    a.append(a)
+    b.append(b)
+
+    if 0 == a[0] or 0 == b[0]: #Check suitability
+        raise Exception('ERROR: Unsupported Zero')
+
     i = 0
+
+    #Euclid
     while True:
-        data[i+1][2] = (data[i][0] // data[i][1])
-        data[i+1][3] = (data[i][0] % data[i][1])
-        print(f'{data[i][0]} = {data[i][1]} × {data[i][2]} + {data[i][3]}')
+        q.append(a[i] // b[i])
+        r.append(a[i] % b[i])
+        print('  ', a[i], '=', b[i], '×', q[i], '+', r[i])
 
-        if data[i][3] == 0:
+        if r[i] == 0:
             break
-
-        data[i+1][0] = data[i][1]
-        data[i+1][1] = data[i][3]
+        a.append(b[i])
+        b.append(r[i])
         i += 1
     
+    return b[i] 
     
