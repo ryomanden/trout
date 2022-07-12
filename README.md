@@ -14,9 +14,14 @@ pip install git+https://github.com/ryomanden/trout
 ```
 
 ## 使い方
-インポート
+### インポート
 ```python
 impot trout as tr
+```
+### 逆行列
+2*2の配列で指定してください
+```python
+tr.inverse(data,mod)
 ```
 
 ### ユークリッド
