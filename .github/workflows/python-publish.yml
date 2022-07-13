@@ -17,7 +17,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install setuptools wheel twine
-    - name:Install require
+    - name: Install require
       run: pip install numpy sympy
     - name: Build and publish
       env:
