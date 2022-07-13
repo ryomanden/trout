@@ -18,7 +18,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install setuptools wheel twine
     - name: Install require
-      run: pip install numpy sympy
+      run: |
+        pip install numpy sympy
     - name: Build and publish
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
