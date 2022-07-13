@@ -1,6 +1,7 @@
 import numpy as np
 import sympy as sp
 
+#逆行列を求める
 def inverse(data,mod):
     data = np.array(data, dtype=int)
 
@@ -8,7 +9,7 @@ def inverse(data,mod):
     det = np.linalg.det(data)
     det = int(det % mod) #modかける
     det_inv = sp.gcdex(mod,det)[1]
-    #--- ひっくり返す(いい感じじゃない) ---#
+    #--- ひっくり返す ---#
     tmp = data[0][0]
     data[0][0] = data[1][1]
     data[1][1] = tmp
@@ -19,6 +20,25 @@ def inverse(data,mod):
     data_inv = np.dot(data, det_inv) % mod
 
     return data_inv
+
+#連立方程式
+def renritsu(data_L,data_R,mod):
+    data_L = np.array(data_L, dtype=int)
+    data_R= np.array(data_R, dtype=int)
+
+    data_inv = inverse(data_L,mod)
+    result = np.dot(data_inv, data_R) % mod
+
+    return result
+
+#RSA形式で暗号化
+def rsa(mod:int,e:int,N:int,data:str):
+    data = str(data)
+    P = int(data, N)
+
+    result = int(P ** e) % mod
+    result = np.base_repr(result, N)
+    return result
 
 
 #関数化うまくいってない#
