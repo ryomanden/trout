@@ -19,7 +19,7 @@ PYTHON_REQUIRES = ">=3.7"
 INSTALL_REQUIRES = [
     'numpy',
     'sympy',
-    ]
+]
 
 PACKAGES = find_packages()
 
