@@ -7,17 +7,16 @@ def inverse(data,mod):
     #--- 行列式計算 ---#
     det = np.linalg.det(data)
     det = int(det % mod) #modかける
-    det_inv = sp.gcdex(det,mod)[1]
+    det_inv = sp.gcdex(mod,det)[1]
     #--- ひっくり返す(いい感じじゃない) ---#
     tmp = data[0][0]
     data[0][0] = data[1][1]
     data[1][1] = tmp
 
-    tmp = data[0][1]
-    data[0][1] = data[1][0]*(-1)
-    data[1][0] = tmp*(-1)
+    data[0][1] = data[0][1]*(-1)
+    data[1][0] = data[1][0]*(-1)
 
-    data_inv = np.dot(data, det) % mod
+    data_inv = np.dot(data, det_inv) % mod
 
     return data_inv
 
