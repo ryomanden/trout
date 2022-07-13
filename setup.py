@@ -37,8 +37,6 @@ CLASSIFIERS = [
     'Intended Audience :: Education',
 ]
 
-with open('README.md', 'r') as fp:
-    readme = fp.read()
 
 setup(name=NAME,
       author=AUTHOR,
