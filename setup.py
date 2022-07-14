@@ -8,7 +8,7 @@ from setuptools import setup
 import trout
 
 DESCRIPTION = "trout: "
-NAME = 'trout'
+NAME = 'trout22'
 AUTHOR = 'Ryo Mitsuda'
 URL = 'https://github.com/ryomanden/trout'
 LICENSE = 'MIT License'
